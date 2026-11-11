@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #8B1E24;
+  --color-primary-dark: #6A1318;
+  --color-primary-light: #A82930;
+  --color-accent: #D4AF37;
+  --color-accent-light: #F3E5AB;
+  --color-neutral-dark: #1A1D20;
+  --color-bg-subtle: #F8F9FA;
+  --color-surface: #FFFFFF;
+}
+
+[data-tenant="circulo-militar"] {
+  --color-primary: #1B365D;
+  --color-primary-dark: #11233D;
+  --color-primary-light: #254B82;
+  --color-accent: #C8A051;
+  --color-accent-light: #E8D5A7;
+  --color-neutral-dark: #0B1320;
+  --color-bg-subtle: #F0F4F8;
+  --color-surface: #FFFFFF;
+}
+
+[data-tenant="croe"] {
+  --color-primary: #8B1E24;
+  --color-primary-dark: #6A1318;
+  --color-primary-light: #A82930;
+  --color-accent: #D4AF37;
+  --color-accent-light: #F3E5AB;
+  --color-neutral-dark: #1A1D20;
+  --color-bg-subtle: #F8F9FA;
+  --color-surface: #FFFFFF;
+}
+
+/* 3D perspective classes for Digital Carné Card */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.perspective-2000 {
+  perspective: 2000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Antigravity Design System: Weightless Floating, Glassmorphism & Depth */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.antigravity-card {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease-out;
+  will-change: transform;
+}
+
+.antigravity-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 7s ease-in-out 2s infinite;
+}
+
+/* Subtle glow effects */
+.glow-accent {
+  box-shadow: 0 0 30px -5px rgba(212, 175, 55, 0.35);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-delayed,
+  .antigravity-card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Smooth transitions for theme swapping */
+body {
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+/* Print utilities for vouchers */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
